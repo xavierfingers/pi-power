@@ -2,7 +2,5 @@
 # Pi-Power
 ### This program calculates very accurate approximations of π.
 ### One of the test approximations are: 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659
-### I also calculated the Earth's average circumference using that: 40030.173592041145
-=======
-# pi-power
-A program to calculate Pi.
+### I also calculated the Earth's average circumference using that: 40030.173592041145 km
+### I also calculated Saturn's average circumference using that: 378675.0120930993 km

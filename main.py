@@ -10,7 +10,7 @@ def pi(n, p=0):
          inverse_pi = mp.mpf(factorial * summed)
          p = mp.mpf(1/inverse_pi)
          print(f"Approximation: {p} digits: {len(str(p))}")
-print("==== CALCULATE PI ====")
-n = int(input("Enter digits: "))
+print("Welcome to Pi-Power")
+n = int(input("Enter digits to calculate: "))
 for i in range(n):
  pi(i)

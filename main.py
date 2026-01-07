@@ -1,3 +1,4 @@
+import time
 from mpmath import mp
 def pi(n, p=0):
         summed = mp.mpf(0)
@@ -15,6 +16,19 @@ def pi(n, p=0):
          p = mp.mpf(1/inverse_pi)
          print(f"Approximation: {p} digits: {len(str(p))}")
 print("Welcome to Pi-Power")
-n = int(input("Enter digits to calculate: "))
-for i in range(n):
- pi(i)
+print("Select options: ")
+print("option 1: benchmark")
+print("option 2: pi calculate")
+ch = int(input("Choice: "))
+def benchmark():
+ t = time.perf_counter()
+ n = int(input("Enter benchmark limit: "))
+ l = time.perf_counter() - t
+ pi(n)
+ print(f"Took {l/100} ms to calculate Pi.")
+if ch == 1:
+ benchmark()
+else: 
+ n = int(input("Enter digits to calculate: "))
+ for i in range(n):
+  pi(i) 

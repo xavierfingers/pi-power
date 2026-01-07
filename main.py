@@ -16,12 +16,12 @@ def pi(n, p=0):
                 summed += t_1
          inverse_pi = factorial * summed
          p = mp.mpf(1/inverse_pi)
-         if len(str(p)) == n:
+         if len(str(p)) >= n:
           break
          end = (time.perf_counter() - r) * 1000
          print(f"Approximation: {p} digits: {len(str(p))}")
         print(f"Took {end:.6f} ms to calculate") 
 print("Welcome to Pi-Power")
-n = int(input("Enter digits to calculate"))
+n = int(input("Enter digits to calculate: "))
 for i in range(n):
   pi(i)

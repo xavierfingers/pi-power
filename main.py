@@ -25,13 +25,12 @@ def e(n):
   term = mp.mpf(1) / factorial
   e += term
   x += 1
-  print("Approximation: " + str(e))
+ print("Approximation: " + str(e))
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":
  n = int(input("Enter digits: "))
- for i in range(n):
-  e(n)
+ e(n)
 elif choice == "pi": 
  n = int(input("Enter digits to calculate: "))
  for i in range(n):

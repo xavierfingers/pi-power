@@ -15,7 +15,24 @@ def pi(n, p=0):
          inverse_pi = factorial * summed
          p = mp.mpf(1/inverse_pi)
          print(f"Approximation: {p} digits: {len(str(p))}") 
-print("Welcome to Pi-Power")
-n = int(input("Enter digits to calculate: "))
-for i in range(n):
-  pi(i)
+def e(n):
+ factorial = mp.mpf(1)
+ mp.dps = n
+ x = 1
+ e = mp.mpf(1)
+ for i in range(n):
+  factorial *= x
+  term = mp.mpf(1) / factorial
+  e += term
+  x += 1
+  print("Approximation: " + str(e))
+print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
+choice = input("Enter choice: ")
+if choice == "e":
+ n = int(input("Enter digits: "))
+ for i in range(n):
+  e(n)
+elif choice == "pi": 
+ n = int(input("Enter digits to calculate: "))
+ for i in range(n):
+   pi(i)

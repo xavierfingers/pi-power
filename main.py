@@ -23,8 +23,8 @@ def pi(n, result=mp.mpf(0)):
   N = lambda t: (4 * t)
  result = T(a, b) / N(t)
  end = time.perf_counter() - start
- print(end)
- print("---- Verification ------\n" + str(result))
+ print("----TIME TOOK IN SECONDS ----\n", end)
+ print("---- RESULT ------\n", str(result))
 def e(n):
  e = mp.mpf(1)
  x = 1

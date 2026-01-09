@@ -2,12 +2,17 @@ import time
 import math
 from mpmath import mp
 import re
-def pi(n, p=0):
+def pi(n, result=0):
  a = mp.mpf(1)
  b = 1 / mp.sqrt(2)
  t = mp.mpf(1) / 4
  p = mp.mpf(1)
- mp.dps = n
+ if n > 10:
+  mp.dps = 1000
+ else: 
+  mp.dps = n
+ end = 0
+ start = time.perf_counter() 
  for _ in range(n):
   an = (a+b) / 2
   b = mp.sqrt(a*b)
@@ -15,7 +20,10 @@ def pi(n, p=0):
   a = an
   p *= 2
   result = (a+b)**2 / (4 * t)
-  print("Result: " + str(result))
+  end = time.perf_counter() - start
+ print(f"Took {end} seconds") 
+ with open("pi - Verify.txt", 'w') as f:
+  f.write(f"Verification ------\n{result}")
 def e(n):
  e = mp.mpf(1)
  x = 1
@@ -34,5 +42,5 @@ if choice == "e":
  e(n)
 elif choice == "pi": 
  n = int(input("Enter digits to calculate: "))
- for i in range(n):
-   pi(i)
+ result = mp.mpf(0)
+ pi(n)

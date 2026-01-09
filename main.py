@@ -2,28 +2,29 @@ import time
 import math
 from mpmath import mp
 import re
-def pi(n, result=0):
- a = mp.mpf(1)
- b = 1 / mp.sqrt(2)
- t = mp.mpf(1) / 4
- p = mp.mpf(1)
+def pi(n, result=mp.mpf(0)):
  if n > 10:
-  mp.dps = 1000
+  mp.dps = n
  else: 
   mp.dps = n
  end = 0
+ a = mp.mpf(1)
+ b = mp.mpf(1) / mp.sqrt(2)
+ t = mp.mpf(1/4)
+ p = mp.mpf(1)
  start = time.perf_counter() 
- for _ in range(n):
+ for k in range(n):
   an = (a+b) / 2
   b = mp.sqrt(a*b)
   t -= p * (a - an) ** 2
   a = an
-  p *= 2
-  result = (a+b)**2 / (4 * t)
-  end = time.perf_counter() - start
- print(f"Took {end} seconds") 
- with open("pi - Verify.txt", 'w') as f:
-  f.write(f"Verification ------\n{result}")
+  p = 2 * p
+  T = lambda a, b: (a+b)**2 
+  N = lambda t: (4 * t)
+ result = T(a, b) / N(t)
+ end = time.perf_counter() - start
+ print(end)
+ print("---- Verification ------\n" + str(result))
 def e(n):
  e = mp.mpf(1)
  x = 1

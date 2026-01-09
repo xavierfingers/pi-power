@@ -3,6 +3,7 @@ from mpmath import mp
 def pi(n, p=0):
         summed = mp.mpf(0)
         mp.dps = n
+        p = mp.mpf(0)
         factorial = 2*mp.sqrt(2)/mp.mpf(9801)
         for k in range(0, n):
          t_1 = mp.mpf(mp.factorial(4*k)*mp.mpf(1103 + 26390*k))
@@ -14,7 +15,7 @@ def pi(n, p=0):
                 summed += t_1
          inverse_pi = factorial * summed
          p = mp.mpf(1/inverse_pi)
-         print(f"Approximation: {p} digits: {len(str(p))}") 
+        print(f"Approximation: {p} digits: {len(str(p))}") 
 def e(n):
  factorial = mp.mpf(1)
  mp.dps = n

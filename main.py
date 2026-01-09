@@ -1,4 +1,4 @@
-
+import time
 from mpmath import mp
 def pi(n, p=0):
         summed = mp.mpf(0)
@@ -21,6 +21,7 @@ def e(n):
  mp.dps = n
  x = 1
  e = mp.mpf(1)
+ t = time.perf_counter()
  for i in range(n):
   factorial *= x
   term = mp.mpf(1) / factorial
@@ -28,7 +29,9 @@ def e(n):
   x += 1
   if x - n >= 1:
    x -= 1
+  sc = time.perf_counter() - t 
   print("Approximation: " + str(e))
+ print("Took: " + str(sc) + " seconds")
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":

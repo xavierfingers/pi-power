@@ -1,4 +1,5 @@
 import time
+import math
 from mpmath import mp
 def pi(n, p=0):
         summed = mp.mpf(0)
@@ -9,32 +10,20 @@ def pi(n, p=0):
          t_1 = mp.mpf(mp.factorial(4*k)*mp.mpf(1103 + 26390*k))
          t_2 = mp.mpf(mp.factorial(k)**4 * mp.mpf(396)**mp.mpf((4*k)))
          summed += t_1 / t_2
-         if t_1 - t_2 == 1:
-          if t_1 == 0:
-            return (1, 1)
-         inverse_pi = factorial * summed 
+         inverse_pi = factorial * summed
          p = 1/inverse_pi
          print(f"Approximation: {p} digits: {len(str(p))}") 
 def e(n):
- factorial = mp.mpf(1)
- mp.dps = n
- x = 1
  e = mp.mpf(1)
- t = time.perf_counter()
- for i in range(n):
-  factorial *= x
-  if x == 0:
-   factorial **= x
-  term = mp.mpf(1) / factorial
-  if term == 0:
-   term += mp.mpf(1) / factorial
-  e += term
+ x = 1
+ mp.dps = n
+ for k in range(1,n):
+  T = lambda: 1
+  N = lambda k: mp.factorial(k)
+  term1 = T() / N(k)
+  e += term1
   x += 1
-  if x - n == 1:
-   term = mp.mpf(x) / factorial
-  sc = time.perf_counter() - t 
   print("Approximation: " + str(e))
- print("Took: " + str(sc) + " seconds")
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":

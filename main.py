@@ -10,12 +10,11 @@ def pi(n, p=0):
          t_2 = mp.mpf(mp.factorial(k)**4 * mp.mpf(396)**mp.mpf((4*k)))
          summed += t_1 / t_2
          if t_1 - t_2 == 1:
-          t_2 += t_1
           if t_1 == 0:
-           t_1 += t_2
-        inverse_pi = (factorial * summed) 
-        p = mp.mpf(1/inverse_pi)
-       print(f"Approximation: {p} digits: {len(str(p))}") 
+            return (1, 1)
+         inverse_pi = factorial * summed 
+         p = 1/inverse_pi
+         print(f"Approximation: {p} digits: {len(str(p))}") 
 def e(n):
  factorial = mp.mpf(1)
  mp.dps = n

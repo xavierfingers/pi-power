@@ -25,17 +25,17 @@ def pi(n, result=mp.mpf(0)):
  end = time.perf_counter() - start
  print("----TIME TOOK IN SECONDS ----\n", end)
  print("---- RESULT ------\n", str(result))
-def e(n):
+def e(digits):
  e = mp.mpf(1)
- x = 1
- mp.dps = n
- for k in range(1,n):
-  T = lambda: 1
-  N = lambda k: mp.factorial(k)
-  term1 = T() / N(k)
-  e += term1
-  x += 1
-  print("Approximation: " + str(e))
+ n = digits // 2 + 1
+ mp.dps = digits
+ for k in range(n):
+  N = lambda n: mp.mpf(1) / (2**n)
+  term1 = N(n)
+  result = 1 + term1
+  for l in range(n):
+   result *= result
+ print("Approximation: " + str(result))
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":

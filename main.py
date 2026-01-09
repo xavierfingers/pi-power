@@ -26,6 +26,8 @@ def e(n):
   term = mp.mpf(1) / factorial
   e += term
   x += 1
+  if x - n >= 1:
+   x -= 1
   print("Approximation: " + str(e))
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")

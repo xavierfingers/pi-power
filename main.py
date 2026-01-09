@@ -1,18 +1,21 @@
 import time
 import math
 from mpmath import mp
+import re
 def pi(n, p=0):
-        summed = mp.mpf(0)
-        mp.dps = n
-        p = mp.mpf(0)
-        factorial = 2*mp.sqrt(2)/mp.mpf(9801)
-        for k in range(0, n):
-         t_1 = lambda k: mp.mpf(mp.factorial(4*k)*mp.mpf(1103 + 26390*k))
-         t_2 = lambda k: mp.mpf(mp.factorial(k)**4 * mp.mpf(396)**mp.mpf((4*k)))
-         summed += t_1(k) / t_2(k)
-         inverse_pi = factorial * summed
-         p = 1/inverse_pi
-         print(f"Approximation: {p} digits: {len(str(p))}") 
+ a = mp.mpf(1)
+ b = 1 / mp.sqrt(2)
+ t = mp.mpf(1) / 4
+ p = mp.mpf(1)
+ mp.dps = n
+ for _ in range(n):
+  an = (a+b) / 2
+  b = mp.sqrt(a*b)
+  t -= p * (a - an) ** 2
+  a = an
+  p *= 2
+  result = (a+b)**2 / (4 * t)
+  print("Result: " + str(result))
 def e(n):
  e = mp.mpf(1)
  x = 1

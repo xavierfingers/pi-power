@@ -7,9 +7,9 @@ def pi(n, p=0):
         p = mp.mpf(0)
         factorial = 2*mp.sqrt(2)/mp.mpf(9801)
         for k in range(0, n):
-         t_1 = mp.mpf(mp.factorial(4*k)*mp.mpf(1103 + 26390*k))
-         t_2 = mp.mpf(mp.factorial(k)**4 * mp.mpf(396)**mp.mpf((4*k)))
-         summed += t_1 / t_2
+         t_1 = lambda k: mp.mpf(mp.factorial(4*k)*mp.mpf(1103 + 26390*k))
+         t_2 = lambda k: mp.mpf(mp.factorial(k)**4 * mp.mpf(396)**mp.mpf((4*k)))
+         summed += t_1(k) / t_2(k)
          inverse_pi = factorial * summed
          p = 1/inverse_pi
          print(f"Approximation: {p} digits: {len(str(p))}") 

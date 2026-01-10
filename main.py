@@ -11,14 +11,16 @@ def pi(n, result=mp.mpf(0)):
  p = mp.mpf(1)
  start = time.perf_counter() 
  for k in range(n):
-  an = (a+b) / 2
-  b = sqrt(a*b)
-  t -= p * (a - an) ** 2
+  an = (a + b) / 2
+  b = sqrt(a * b)
+  t -= p * (a - an)** 2
   a = an
-  p = 2 * p
+  p = (int(p) << 1)
   T = lambda a, b: (a+b)**2 
-  N = lambda t: (4 * t)
+  N = lambda t: 4  << int(t)-1
   def bs(a, b,c,d):
+     if b - a == 0:
+      return (1, 1)
      Bao = b
      Qao = a
      Qao1 = c

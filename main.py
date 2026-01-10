@@ -21,21 +21,31 @@ def pi(n, result=mp.mpf(0)):
   p = 2 * p
   T = lambda a, b: (a+b)**2 
   N = lambda t: (4 * t)
- result = T(a, b) / N(t)
- end = time.perf_counter() - start
- print("----TIME TOOK IN SECONDS ----\n", end)
- print("---- RESULT ------\n", str(result))
+  def bs(a, b,c,d):
+    Bao = b
+    Qao = a
+    Qao1 = c
+    Bao1 = d
+    return (Bao + Qao)**2 / (Bao1 * Qao1) 
+  result = bs(a,b,4,t)
+  end = time.perf_counter() - start
+  print("Approximation of Pi: ", str(result))
+  with open("pi.txt", "w") as f:
+    f.write(str(result))
 def e(digits):
  e = mp.mpf(1)
  n = digits // 2 + 1
  mp.dps = digits
  for k in range(n):
-  N = lambda n: mp.mpf(1) / (2**n)
-  term1 = N(n)
+  def bs(b):
+   Qao = (2**b)
+   Bao = mp.mpf(1)
+   return Bao / Qao 
+  term1 = bs(n)
   result = 1 + term1
   for l in range(n):
    result *= result
- print("Approximation: " + str(result))
+   print("Approximation: " + str(result))
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":

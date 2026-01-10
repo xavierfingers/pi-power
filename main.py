@@ -15,7 +15,7 @@ def pi(n, result=mp.mpf(0)):
  start = time.perf_counter() 
  for k in range(n):
   an = (a+b) / 2
-  b = (a*b)*0.5
+  b = (a*b)**0.5
   t -= p * (a - an) ** 2
   a = an
   p = 2 * p

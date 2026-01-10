@@ -1,35 +1,34 @@
 import time
 import math
 from mpmath import mp, sqrt
-from joblib import Parallel
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecuter
 def pi(n, result=mp.mpf(0)):
  end = 0
+ mp.dps =  3.33 * 10*110
  a = mp.mpf(1)
- b = Parallel(n_jobs=-1)(mp.mpf(1)  / mp.sqrt(2))
- t = mp.mpf(1/4)
+ b = mp.mpf(1)  / sqrt(2)
+ t = mp.mpf(1)/4
  p = mp.mpf(1)
  start = time.perf_counter() 
- for k in range(n):
+ for k in range(20000):
   an = (a+b) / 2
-  b = mp.sqrt(a*b)
+  b = sqrt(a*b)
   t -= p * (a - an) ** 2
   a = an
   p = 2 * p
   T = lambda a, b: (a+b)**2 
   N = lambda t: (4 * t)
   def bs(a, b,c,d):
-    Bao = b
-    Qao = a
-    Qao1 = c
-    Bao1 = d
-    return (Bao + Qao)**2 / (Bao1 * Qao1) 
-  result = Parallel(n_jobs=-1)(bs(a,b,4,t))
+     Bao = b
+     Qao = a
+     Qao1 = c
+     Bao1 = d
+     return (Bao + Qao)**2 / (Bao1 * Qao1) 
+  result = bs(b,a,t,4)
   end = time.perf_counter() - start
-  print("Approximation of Pi: ", str(result))
+  print(str(result))
+  with open('pi.txt', 'w') as f:
+    f.write(str(result))
   print("Took: " + str(end))
-  if str(result).startswith("3.1415159265"):
-   break
 def e(digits):
  e = mp.mpf(1)
  n = digits // 2 + 1

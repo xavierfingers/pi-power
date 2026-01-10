@@ -19,8 +19,8 @@ def pi(n, result=mp.mpf(0)):
   T = lambda a, b: (a+b)**2 
   N = lambda t: 4  << int(t)-1
   def bs(a, b,c,d):
-     if b - a == 0:
-      return (1, 1)
+     if b == 0:
+      return (1,1)
      Bao = b
      Qao = a
      Qao1 = c

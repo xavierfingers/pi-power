@@ -1,4 +1,5 @@
 import time
+import numba
 import math
 from mpmath import mp, sqrt
 def pi(n, result=mp.mpf(0)):
@@ -40,6 +41,14 @@ def e(digits):
   for l in range(n):
    result *= result
   print("Approximation: " + str(result))
+def s(x, digits):
+ def fastsqrt(x):
+  g = 1.0
+  mp.dps = digits
+  for i in range(0, digits):
+   g = mp.mpf(g + x/g) / 2
+   print("Approximation: " + str(g))
+ fastsqrt(x)
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":
@@ -49,3 +58,7 @@ elif choice == "pi":
  n = int(input("Enter digits to calculate: "))
  result = mp.mpf(0)
  pi(n)
+elif choice == "sqrt":
+ n = int(input("Enter sqrt of what? "))
+ d = int(input(f"Enter digits of sqrt({n}): "))
+ s(n, d)

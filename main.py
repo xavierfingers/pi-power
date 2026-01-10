@@ -9,13 +9,13 @@ def pi(n, result=mp.mpf(0)):
   mp.dps = n
  end = 0
  a = mp.mpf(1)
- b = mp.mpf(1) / mp.sqrt(2)
+ b = mp.mpf(1) / 2**0.5
  t = mp.mpf(1/4)
  p = mp.mpf(1)
  start = time.perf_counter() 
  for k in range(n):
   an = (a+b) / 2
-  b = mp.sqrt(a*b)
+  b = (a*b)*0.5
   t -= p * (a - an) ** 2
   a = an
   p = 2 * p
@@ -30,6 +30,9 @@ def pi(n, result=mp.mpf(0)):
   result = bs(a,b,4,t)
   end = time.perf_counter() - start
   print("Approximation of Pi: ", str(result))
+  print("Took: " + str(end))
+  if str(result).startswith("3.1415159265"):
+   break
   with open("pi.txt", "w") as f:
     f.write(str(result))
 def e(digits):
@@ -45,7 +48,7 @@ def e(digits):
   result = 1 + term1
   for l in range(n):
    result *= result
-   print("Approximation: " + str(result))
+  print("Approximation: " + str(result))
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":

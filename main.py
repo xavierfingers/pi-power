@@ -9,7 +9,7 @@ def pi(n, result=mp.mpf(0)):
  t = mp.mpf(1)/4
  p = mp.mpf(1)
  start = time.perf_counter() 
- for k in range(20000):
+ for k in range(n):
   an = (a+b) / 2
   b = sqrt(a*b)
   t -= p * (a - an) ** 2
@@ -25,10 +25,8 @@ def pi(n, result=mp.mpf(0)):
      return (Bao + Qao)**2 / (Bao1 * Qao1) 
   result = bs(b,a,t,4)
   end = time.perf_counter() - start
-  print(str(result))
   with open('pi.txt', 'w') as f:
     f.write(str(result))
-  print("Took: " + str(end))
 def e(digits):
  e = mp.mpf(1)
  n = digits // 2 + 1

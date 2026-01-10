@@ -3,7 +3,7 @@ import math
 from mpmath import mp, sqrt
 def pi(n, result=mp.mpf(0)):
  end = 0
- mp.dps =  3.33 * 10*110
+ mp.dps = n
  a = mp.mpf(1)
  b = mp.mpf(1)  / sqrt(2)
  t = mp.mpf(1)/4
@@ -25,8 +25,7 @@ def pi(n, result=mp.mpf(0)):
      return (Bao + Qao)**2 / (Bao1 * Qao1) 
   result = bs(b,a,t,4)
   end = time.perf_counter() - start
-  with open('pi.txt', 'w') as f:
-    f.write(str(result))
+  print("Pi: " + str(result))
 def e(digits):
  e = mp.mpf(1)
  n = digits // 2 + 1

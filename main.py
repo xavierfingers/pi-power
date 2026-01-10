@@ -41,7 +41,7 @@ def e(digits):
   for l in range(n):
    result *= result
   print("Approximation: " + str(result))
-def s(x, digits):
+def s(x,digits):
  def fastsqrt(x):
   g = 1.0
   mp.dps = digits
@@ -49,6 +49,12 @@ def s(x, digits):
    g = mp.mpf(g + x/g) / 2
    print("Approximation: " + str(g))
  fastsqrt(x)
+def zeta3(digits):
+ z3 = mp.mpf(0)
+ mp.dps = digits
+ for i in range(1, digits+1):
+   z3 += mp.mpf((5/2)*((-1)**(i-1))/(i**3*mp.mpf(math.comb(2*i, i))))
+   print(str(z3))
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":
@@ -62,3 +68,6 @@ elif choice == "sqrt":
  n = int(input("Enter sqrt of what? "))
  d = int(input(f"Enter digits of sqrt({n}): "))
  s(n, d)
+elif choice == "zeta3":
+ n = int(input("Enter digits of zeta(3): "))
+ zeta3(n)

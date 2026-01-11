@@ -1,5 +1,5 @@
 import time
-import numba
+import os
 import math
 from mpmath import mp, sqrt
 def pi(n, result=mp.mpf(0)):
@@ -53,7 +53,12 @@ def s(x,digits):
   mp.dps = digits
   for i in range(0, digits):
    g = mp.mpf(g + x/g) / 2
-   print("Approximation: " + str(g))
+  print("Using Newton's Method")
+  print("Approximation: " + str(g))
+  print(f"Saving to sqrt{x}.txt")
+  os.system(f"type nul > sqrt{x}.txt")
+  with open(f"sqrt{x}.txt", 'w') as f:
+    f.write(str(g))
  fastsqrt(x)
 def zeta3(digits):
  z3 = mp.mpf(0)

@@ -66,6 +66,12 @@ def zeta3(digits):
  for i in range(1, digits+1):
    z3 += mp.mpf((5/2)*((-1)**(i-1))/(i**3*mp.mpf(math.comb(2*i, i))))
    print(str(z3))
+def phi(digits):
+ x = mp.mpf("1.6")
+ mp.dps = digits
+ for _ in range(digits):
+    x = x - (x**2 - x - 1) / (2*x) - 1
+    print(f"Result: {str(x + 1)}") 
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":
@@ -82,3 +88,8 @@ elif choice == "sqrt":
 elif choice == "zeta3":
  n = int(input("Enter digits of zeta(3): "))
  zeta3(n)
+elif choice == "phi":
+ n = int(input("Enter number of digits: "))
+ phi(n)
+else:
+ print("Unknown constant.")

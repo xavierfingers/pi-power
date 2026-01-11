@@ -1,3 +1,4 @@
+# Pi-Power - Compute lots of constants
 import time
 import os
 import math

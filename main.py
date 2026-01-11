@@ -69,9 +69,11 @@ def zeta3(digits):
 def phi(digits):
  x = mp.mpf("1.6")
  mp.dps = digits
- for _ in range(digits):
+ for _ in range(0, 1):
     x = x - (x**2 - x - 1) / (2*x) - 1
-    print(f"Result: {str(x + 1)}") 
+    os.system("type nul > phi.txt")
+    with open("phi.txt", "w") as f:
+     f.write(str(x + 1)) 
 print("Welcome to Pi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":

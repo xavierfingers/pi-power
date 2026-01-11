@@ -98,4 +98,4 @@ elif choice == "phi":
  phi(n)
 else:
  print("Unknown constant.")
- print("List: \nphi\nzeta3\nsqrt\pi\e")
+ print("List: \nphi\nzeta3\nsqrt\npi\ne")

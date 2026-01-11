@@ -1,3 +1,4 @@
+# 100 lines of pure maths
 # Pi-Power - Compute lots of constants
 import time
 import os
@@ -97,3 +98,4 @@ elif choice == "phi":
  phi(n)
 else:
  print("Unknown constant.")
+ print("List: \nphi\nzeta3\nsqrt\pi\e")

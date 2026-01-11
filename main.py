@@ -21,13 +21,17 @@ def pi(n, result=mp.mpf(0)):
   def bs(a, b,c,d):
      if b == 0:
       return (1,1)
-     Bao = b
-     Qao = a
-     Qao1 = c
-     Bao1 = d
-     return (Bao + Qao)**2 / (Bao1 * Qao1) 
+     else:
+      Bao = b
+      Qao = a
+      Qao1 = c
+      Bao1 = d
+      return (Bao + Qao)**2 / (Bao1 * Qao1) 
   result = bs(b,a,t,4)
   end = time.perf_counter() - start
+  def verify(x, place):
+   print(f"Place at {place} in approximated pi is {x[place]}")
+  verify(str(result), len(str(result))-1) 
   print("Pi: " + str(result))
 def e(digits):
  e = mp.mpf(1)

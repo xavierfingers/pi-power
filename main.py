@@ -32,7 +32,8 @@ def pi(n, result=mp.mpf(0)):
   def verify(x, place):
    print(f"Place at {place} in approximated pi is {x[place]}")
   verify(str(result), len(str(result))-1) 
-  print("Pi: " + str(result))
+  with open('pi.txt', 'w') as f:
+   f.write(str(result))
 def e(digits):
  e = mp.mpf(1)
  n = digits // 2 + 1

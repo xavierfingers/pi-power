@@ -42,14 +42,15 @@ def e(digits):
  mp.dps = digits
  for k in range(n):
   def bs(b):
-   Qao = (2**b)
+   Qao = (2 << (int(b) - 1))
    Bao = mp.mpf(1)
    return Bao / Qao 
   term1 = bs(n)
   result = 1 + term1
   for l in range(n):
    result *= result
-  print("Approximation: " + str(result))
+  with open(f"e.txt", 'w') as f:
+   f.write(str(result))
 def s(x,digits):
  def fastsqrt(x):
   g = 1.0

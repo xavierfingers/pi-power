@@ -68,8 +68,12 @@ def zeta3(digits):
  z3 = mp.mpf(0)
  mp.dps = digits
  for i in range(1, digits+1):
-   z3 += mp.mpf((5/2)*((-1)**(i-1))/(i**3*mp.mpf(math.comb(2*i, i))))
-   print(str(z3))
+   def bs():
+    Qao = mp.mpf((5/2)*((-1)**(i-1))/(i**3*mp.mpf(math.comb(2*i, i))))
+    return Qao
+   z3 += sum([bs()])
+ with open("zeta.txt", 'w') as f:
+    f.write(str(z3))
 def phi(digits):
  x = mp.mpf("1.6")
  mp.dps = digits

@@ -82,7 +82,7 @@ def phi(digits):
     os.system("type nul > phi.txt")
     with open("phi.txt", "w") as f:
      f.write(str(x)) 
-print("Welcome to \033[5;1;4mPi-Power\033\[0M - Crunching hundreds of pi digits and others")
+print("Welcome to \033[5;1;4mPi-Power - Crunching hundreds of pi digits and others")
 choice = input("Enter choice: ")
 if choice == "e":
  n = int(input("Enter digits: "))

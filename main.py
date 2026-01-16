@@ -32,7 +32,9 @@ def pi(n, result=mp.mpf(0)):
   result = bs(b,a,t,4)
   end = time.perf_counter() - start
   def verify(x, place):
-   print(f"Place at {place} in approximated pi is {x[place]}")
+   if place < 1000:
+    dn = math.floor(10**place * result) % 10
+    print(f"{len(str(result))}th digit is {dn}")
   verify(str(result), len(str(result))-1) 
   with open('pi.txt', 'w') as f:
    f.write(str(result))

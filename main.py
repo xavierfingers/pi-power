@@ -36,8 +36,7 @@ def pi(n, result=mp.mpf(0)):
     dn = math.floor(10**place * result) % 10
     print(f"{len(str(result))}th digit is {dn}")
   verify(str(result), len(str(result))-1) 
-  with open('pi.txt', 'w') as f:
-   f.write(str(result))
+  print(str(result))
 def e(digits):
  e = mp.mpf(1)
  n = digits // 2 + 1

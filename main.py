@@ -12,7 +12,7 @@ def pi(n, result=mp.mpf(0)):
  t = mp.mpf(1)/4
  p = mp.mpf(1)
  start = time.perf_counter() 
- for k in range(math.ceil(math.log(n, 4))):
+ for _ in range(math.ceil(math.log(n, 4))):
   an = (a + b) / 2
   b = sqrt(a * b)
   t -= p * (a - an)** 2
@@ -33,7 +33,7 @@ def pi(n, result=mp.mpf(0)):
   end = time.perf_counter() - start
   def verify(x, place):
    if place < 1000:
-    dn = math.floor(10**place * result) % 10
+    dn = mp.floor(mp.mpf(10**place) * result) % 10
     print(f"{len(str(result))}th digit is {dn}")
   verify(str(result), len(str(result))-1) 
   print(str(result))

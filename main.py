@@ -12,7 +12,7 @@ def pi(n, result=mp.mpf(0)):
  t = mp.mpf(1)/4
  p = mp.mpf(1)
  start = time.perf_counter() 
- for k in range(n):
+ for k in range(math.ceil(math.log(n, 4))):
   an = (a + b) / 2
   b = sqrt(a * b)
   t -= p * (a - an)** 2
@@ -50,6 +50,7 @@ def e(digits):
   result = 1 + term1
   for l in range(n):
    result *= result
+  print(result)
   with open(f"e.txt", 'w') as f:
    f.write(str(result))
 def s(x,digits):
@@ -58,7 +59,8 @@ def s(x,digits):
   mp.dps = digits
   for i in range(0, digits):
    g = mp.mpf(g + x/g) / 2
-  print("Using Newton's Method")
+  print(g)
+  print("Used Newton's Method")
   print("Approximation: " + str(g))
   print(f"Saving to sqrt{x}.txt")
   os.system(f"type nul > sqrt{x}.txt")
@@ -80,6 +82,7 @@ def phi(digits):
  mp.dps = digits
  for _ in range(10):
     x = x - (x**2 - x - 1) / (2*x-1)
+    print(x)
     os.system("type nul > phi.txt")
     with open("phi.txt", "w") as f:
      f.write(str(x)) 
